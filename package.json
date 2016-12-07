@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "dva": "^1.1.0",
+    "gh-pages": "^0.12.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
@@ -25,6 +26,7 @@
   "scripts": {
     "start": "dora --plugins \"proxy?watchDirs=./mock,webpack,webpack-hmr\"",
     "build": "atool-build",
-    "test": "atool-test-mocha ./src/**/*-test.js"
+    "test": "atool-test-mocha ./src/**/*-test.js",
+    "publish": "npm run build && gh-pages -d ./dist"
   }
 }
