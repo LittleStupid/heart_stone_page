@@ -1,3 +1,5 @@
+import { getRemoteCardInfo } from '../services/cardDetail';
+
 export default {
 
   namespace: 'CardDetail',
@@ -7,6 +9,10 @@ export default {
   },
 
   effects: {
+    *getCmdInfo({ payload }, { call, put }) {
+      const { data } = yield call(getRemoteCardInfo);
+      console.log( data );
+    }
   },
 
   reducers: {
