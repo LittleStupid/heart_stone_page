@@ -1,10 +1,13 @@
 import React from 'react';
+import { Card } from 'antd';
 
-const CardDetail = (props) => {
+const CardDetail = ( { imgAddress } ) => {
   return (
-    <div>
-      <h1>CardDetail</h1>
-    </div>
+    <Card>
+      <div className="custom-image">
+        <img alt="example" src={imgAddress} />
+      </div>
+    </Card>
   );
 };
 
