@@ -6,17 +6,14 @@ import Header from '../components/Header'
 import { Button } from 'antd';
 
 
-function CardDetailPage( { dispatch, imgAddress }) {
+function CardDetailPage( { dispatch, imgAddress, info }) {
   function clk() {
-    console.log("CLICKING")
-    // dispatch({ type: 'CardDetail/doChange', payload: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png' });
-    dispatch( { type: 'CardDetail/getCmdInfo' } )
-    console.log("CLICKING END")
+    dispatch( { type: 'CardDetail/getCardInfo' } )
   }
 
   return (
     <Header>
-      <CardDetail imgAddress={imgAddress} msg={imgAddress} />
+      <CardDetail imgAddress={imgAddress} msg={info} />
       <Button type="primary" onClick={clk}>
         Click me!
       </Button>
@@ -29,7 +26,8 @@ CardDetailPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    imgAddress: state.CardDetail.imgAddress
+    imgAddress: state.CardDetail.imgAddress,
+    info: state.CardDetail.information
   };
 }
 

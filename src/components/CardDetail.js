@@ -3,12 +3,16 @@ import { Card } from 'antd';
 
 const CardDetail = ( { imgAddress, msg } ) => {
   return (
-    <Card>
-      <div className="custom-image">
-        <img alt="example" src={imgAddress} />
+    <div>
+      <Card>
+        <div className="custom-image">
+          <img alt="example" src={imgAddress} />
+        </div>
+      </Card>
+      <div>
+        <h3>{msg}</h3>
       </div>
-      <h3>{msg}</h3>
-    </Card>
+    </div>
   );
 };
 

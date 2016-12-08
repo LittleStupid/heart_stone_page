@@ -23,6 +23,11 @@ const Header = (props) => {
             <Icon type="book" />Card
           </Link>
         </Menu.Item>
+        <Menu.Item key="back">
+          <Link to="/back">
+            <Icon type="book" />Card Back
+          </Link>
+        </Menu.Item>
     </Menu>
     <div>
       { props.children }

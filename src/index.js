@@ -10,7 +10,8 @@ const app = dva();
 //app.use({});
 
 // 3. Model
-app.model(require('./models/cardDetail'));
+app.model(require('./models/CardDetail'));
+app.model(require('./models/CardBack'));
 
 // 4. Router
 app.router(require('./router'));
