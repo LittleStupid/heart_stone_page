@@ -1,9 +1,14 @@
 import React from 'react';
+import { Row, Col } from 'antd';
+
 
 const Example = (props) => {
   return (
     <div>
-      Example
+      <Row>
+        <Col span={12}>col-12</Col>
+        <Col span={12}>col-12</Col>
+      </Row>
     </div>
   );
 };

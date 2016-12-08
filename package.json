@@ -4,6 +4,7 @@
     "index": "./src/index.js"
   },
   "dependencies": {
+    "antd": "^2.5.1",
     "dva": "^1.1.0",
     "gh-pages": "^0.12.0",
     "react": "^15.3.2",

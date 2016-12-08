@@ -1,5 +1,6 @@
 import './index.html';
 import './index.css';
+import 'antd/dist/antd.css';
 import dva from 'dva';
 
 // 1. Initialize
