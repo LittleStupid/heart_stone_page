@@ -8,12 +8,12 @@ import { Row, Col } from 'antd';
 function CardBackPage( { dispatch, backs}) {
   return (
     <Header>
-      <Row align="bottom">
+      <Row align="bottom" gutter={16}>
         {
           backs.map( (back) => {
             return (
-              <Col span={4}>
-                <CardBack imgUrl={back.img} key={back.cardBackId} />
+              <Col span={4} key={back.cardBackId}>
+                <CardBack imgUrl={back.img} name={back.name} />
               </Col>
             )
           })
