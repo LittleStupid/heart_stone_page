@@ -16,3 +16,11 @@ export async function getRemoteCardBack() {
              "Accept": "application/json"}
     });
 }
+
+export async function getRemoteHero() {
+  return request('https://omgvamp-hearthstone-v1.p.mashape.com/cards/types/Hero?collectible=1&rarity=free', {
+    method: 'get',
+    headers: {"X-Mashape-Key": "97GnbLpzEemsh6rU25FWlsL2YAvkp1V1IczjsnQO80HhkRdfEf",
+             "Accept": "application/json"}
+    });
+}
