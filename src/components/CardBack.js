@@ -1,19 +1,44 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Spin, Card } from 'antd';
 import styles from './CardBack.less';
 
-const CardBack = ( { imgUrl, name } ) => {
-  return (
-    <Card>
-      <img alt="cardback" src={imgUrl} width="100%" height="100%" />
-      <div className={styles.name}>
-        <h3>{name}</h3>
-      </div>
-    </Card>
-  );
+class CardBack extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { url: props.imgUrl, isLoading: true };
+  }
+
+  handleImageLoaded() {
+    this.setState({ isLoading: false });
+  }
+
+  handleImageErrored() {
+    this.setState({ url: 'http://wow.zamimg.com/images/hearthstone/backs/original/Card_Back_Default.png',
+                    isLoading: false });
+  }
+  render() {
+    return (
+      <Card>
+        <Spin tip="Loading..." spinning={this.state.isLoading}>
+          <img alt="cardback"
+            src={this.state.url}
+            width="100%"
+            height="100%"
+            onLoad={this.handleImageLoaded.bind(this)}
+            onError={this.handleImageErrored.bind(this)}
+          />
+        </Spin>
+        <div className={styles.name}>
+          <h3>{this.props.name}</h3>
+        </div>
+      </Card>
+    )
+  }
 };
 
 CardBack.propTypes = {
+  imgUrl: '',
+  name: ''
 };
 
 export default CardBack;
