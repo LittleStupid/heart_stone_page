@@ -16,7 +16,7 @@ class CardBack extends React.Component {
   }
 
   handleImageErrored() {
-    this.setState({ url: 'http://placehold.it/307x465',
+    this.setState({ url: 'http://wow.zamimg.com/images/hearthstone/backs/original/Card_Back_Default.png',
                     isLoading: false });
   }
 
