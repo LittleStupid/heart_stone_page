@@ -8,7 +8,7 @@ import { Row, Col } from 'antd';
 function CardBackPage( { dispatch, backs}) {
   return (
     <Header>
-      <Row align="bottom" gutter={16}>
+      <Row type="flex">
         {
           backs.map( (back) => {
             return (
