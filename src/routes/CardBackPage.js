@@ -3,21 +3,23 @@ import { connect } from 'dva';
 import { Link } from 'dva/router';
 import CardBack from '../components/CardBack'
 import Header from '../components/Header'
-import { Row, Col } from 'antd';
+import { Row, Col, Popover } from 'antd';
 
-function CardBackPage( { dispatch, backs}) {
+function CardBackPage( {backs}) {
   return (
     <Header>
       <Row type="flex">
-        {
-          backs.map( (back) => {
-            return (
-              <Col span={4} key={back.cardBackId}>
-                <CardBack imgUrl={back.img} name={back.name} />
+      {
+        backs.map( (back) => {
+          return (
+            <Popover title={back.name} key={back.cardBackId} content={back.howToGet}>
+              <Col span={3} >
+                  <CardBack imgUrl={back.img} anmUrl={back.imgAnimated} name={back.name} />
               </Col>
-            )
-          })
-        }
+            </Popover>
+          )
+        })
+      }
       </Row>
     </Header>
   );

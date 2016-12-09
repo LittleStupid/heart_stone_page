@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Spin, Card } from 'antd';
 import styles from './CardBack.less';
 
 class CardBack extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: props.imgUrl, isLoading: true };
+    this.state = { url: props.imgUrl,
+                   isLoading: true,
+                   doClick: props.doClick,
+                 };
   }
 
   handleImageLoaded() {
@@ -16,9 +19,22 @@ class CardBack extends React.Component {
     this.setState({ url: 'http://placehold.it/307x465',
                     isLoading: false });
   }
+
+  handleHoverIn() {
+    if( this.props.anmUrl ) {
+      this.setState( { url: this.props.anmUrl } );
+    }
+  }
+
+  handleHoverOut() {
+    if( this.props.imgUrl ) {
+      this.setState( { url: this.props.imgUrl } );
+    }
+  }
+
   render() {
     return (
-      <Card>
+      <div className={styles.lay}>
         <Spin tip="Loading..." spinning={this.state.isLoading}>
           <img alt="cardback"
             src={this.state.url}
@@ -26,19 +42,22 @@ class CardBack extends React.Component {
             height="100%"
             onLoad={this.handleImageLoaded.bind(this)}
             onError={this.handleImageErrored.bind(this)}
+            onMouseEnter={this.handleHoverIn.bind(this)}
+            onMouseLeave={this.handleHoverOut.bind(this)}
           />
         </Spin>
         <div className={styles.name}>
           <h3>{this.props.name}</h3>
         </div>
-      </Card>
+    </div>
     )
   }
 };
 
 CardBack.propTypes = {
   imgUrl: '',
-  name: ''
+  name: '',
+  doClick: PropTypes.func,
 };
 
 export default CardBack;
