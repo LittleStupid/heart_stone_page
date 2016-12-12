@@ -4,6 +4,7 @@ import WelcomePage from './routes/WelcomePage';
 import CardDetailPage from './routes/CardDetailPage';
 import CardBackPage from './routes/CardBackPage';
 import HeroPage from './routes/HeroPage';
+import CardPage from './routes/CardPage';
 
 export default function({ history }) {
   return (
@@ -12,7 +13,7 @@ export default function({ history }) {
       <Route path="/card" component={CardDetailPage} />
       <Route path="/back" component={CardBackPage} />
       <Route path="/hero" component={HeroPage} />
-      <Redirect from="/cards" to="/" />
+      <Route path="/cards" component={CardPage} />
     </Router>
   );
 };

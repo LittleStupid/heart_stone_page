@@ -2,6 +2,9 @@ import './index.html';
 import './index.css';
 import 'antd/dist/antd.css';
 import dva from 'dva';
+// import { hashHistory, browserHistory } from 'dva/router';
+import { browserHistory } from 'dva/router';
+
 
 // 1. Initialize
 const app = dva();

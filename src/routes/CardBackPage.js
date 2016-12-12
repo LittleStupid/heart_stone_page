@@ -5,9 +5,10 @@ import CardBack from '../components/CardBack'
 import Header from '../components/Header'
 import { Row, Col, Popover } from 'antd';
 
-function CardBackPage( {backs}) {
+function CardBackPage( {backs, query}) {
   return (
     <Header>
+      {console.log(query)}
       <Row type="flex">
       {
         backs.map( (back) => {
@@ -30,7 +31,8 @@ CardBack.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    backs: state.CardBack.backs
+    backs: state.CardBack.backs,
+    query: ownProps.location.query
   };
 }
 

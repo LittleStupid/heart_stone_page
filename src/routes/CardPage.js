@@ -5,15 +5,15 @@ import CardBack from '../components/CardBack'
 import Header from '../components/Header'
 import { Row, Col } from 'antd';
 
-function HeroPage( {heros}) {
+function CardPage( {cards}) {
   return (
     <Header>
       <Row type="flex">
       {
-        heros.map( (hero) => {
+        cards.map( (card) => {
           return (
-            <Col span={4} key={hero.cardId}>
-              <CardBack imgUrl={hero.img} name={hero.name} />
+            <Col span={4} key={card.cardId}>
+              <CardBack imgUrl={card.img} name={card.name} />
             </Col>
           )
         })
@@ -25,8 +25,8 @@ function HeroPage( {heros}) {
 
 function mapStateToProps(state, ownProps) {
   return {
-    heros: state.CardBack.heros.filter( (hero) => { return hero.rarity === 'Free' } )
+    cards: state.CardBack.cards
   };
 }
 
-export default connect(mapStateToProps)(HeroPage);
+export default connect(mapStateToProps)(CardPage);

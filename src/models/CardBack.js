@@ -1,4 +1,4 @@
-import { getRemoteCardBack, getRemoteHero } from '../services/CardDetail';
+import { getRemoteCardBack, getRemoteHero, getRemoteCard } from '../services/CardDetail';
 
 export default {
 
@@ -6,7 +6,8 @@ export default {
 
   state: {
     backs: [],
-    heros: []
+    heros: [],
+    cards: []
   },
 
   subscriptions: {
@@ -20,6 +21,10 @@ export default {
         } else if ( location.pathname === '/hero') {
           dispatch({
             type: 'getHero'
+          });
+        } else if ( location.pathname === '/cards') {
+          dispatch({
+            type: 'getCard'
           });
         }
       });
@@ -36,6 +41,11 @@ export default {
       const { data } = yield call(getRemoteHero);
       console.log( data );
       yield put( { type: 'setHero', payload: data } );
+    },
+    *getCard({ payload }, { call, put }) {
+      const { data } = yield call(getRemoteCard);
+      console.log( data );
+      yield put( { type: 'setCard', payload: data } );
     }
   },
 
@@ -45,6 +55,9 @@ export default {
     },
     setHero(state, action) {
       return { ...state, heros: action.payload };
+    },
+    setCard(state, action) {
+      return { ...state, cards: action.payload };
     }
   }
 }
