@@ -43,7 +43,7 @@ export default {
       yield put( { type: 'setHero', payload: data } );
     },
     *getCard({ payload }, { call, put }) {
-      const { data } = yield call(getRemoteCard);
+      const { data } = yield call(getRemoteCard, payload);
       console.log( data );
       yield put( { type: 'setCard', payload: data } );
     }

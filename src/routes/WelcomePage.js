@@ -6,10 +6,17 @@ import Header from '../components/Header'
 import Diamond from '../components/Diamond'
 
 function WelcomePage() {
+  function clk(cost) {
+    console.log('CLICK:' + cost);
+  }
+
   return (
     <Header>
       <Welcome />
-      <Diamond />
+      <Diamond doClick={clk} cost={0} />
+      <Diamond doClick={clk} cost={1} />
+      <Diamond doClick={clk} cost={2} />
+      <Diamond doClick={clk} cost={3} />
     </Header>
   );
 }

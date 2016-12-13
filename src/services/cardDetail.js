@@ -17,8 +17,13 @@ export async function getRemoteHero() {
   return request('http://localhost:3000/api/hero', { method: 'get' });
 }
 
-export async function getRemoteCard() {
-  return request('http://localhost:3000/api/all?cost=1', {
+export async function getRemoteCard(params) {
+  let request_url = 'http://localhost:3000/api/all' + '?';
+  if( params ) {
+    request_url += params;
+  }
+  console.log(request_url);
+  return request(request_url, {
                   method: 'get',
                 });
               }
