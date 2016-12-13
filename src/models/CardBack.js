@@ -7,7 +7,9 @@ export default {
   state: {
     backs: [],
     heros: [],
-    cards: []
+    cards: [],
+
+    param: {},
   },
 
   subscriptions: {
@@ -24,7 +26,8 @@ export default {
           });
         } else if ( location.pathname === '/cards') {
           dispatch({
-            type: 'getCard'
+            type: 'getCard',
+            payload: { cost: 0, page: 0 }
           });
         }
       });
@@ -43,10 +46,18 @@ export default {
       yield put( { type: 'setHero', payload: data } );
     },
     *getCard({ payload }, { call, put }) {
+      if( !payload ) { console.log( payload ); return; }
+      if( payload.page === undefined ) { console.log( payload.page ); return; }
+      if( payload.page < 0 ) { console.log( payload.page ); return; }
       const { data } = yield call(getRemoteCard, payload);
-      console.log( data );
+      if( data.length === 0 ) {
+        console.log( 'get nothing from server');
+        return ;
+      }
+
       yield put( { type: 'setCard', payload: data } );
-    }
+      yield put( { type: 'setParam', payload: payload });
+    },
   },
 
   reducers: {
@@ -58,6 +69,9 @@ export default {
     },
     setCard(state, action) {
       return { ...state, cards: action.payload };
+    },
+    setParam(state, action) {
+      return { ...state, param: action.payload };
     }
   }
 }

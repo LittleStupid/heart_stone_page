@@ -1,6 +1,16 @@
 import request from '../utils/request';
 import qs from 'qs';
 
+function genQueryParam( obj ) {
+  let strParam = '';
+
+  for (let key of Object.keys(obj)) {
+    strParam += ( key + '=' + obj[key] + '&' );
+  }
+
+  return strParam;
+}
+
 export async function getRemoteCardInfo() {
   return request('https://omgvamp-hearthstone-v1.p.mashape.com/cards/EX1_116', {
     method: 'get',
@@ -20,7 +30,7 @@ export async function getRemoteHero() {
 export async function getRemoteCard(params) {
   let request_url = 'http://localhost:3000/api/all' + '?';
   if( params ) {
-    request_url += params;
+    request_url += genQueryParam( params );
   }
   console.log(request_url);
   return request(request_url, {
