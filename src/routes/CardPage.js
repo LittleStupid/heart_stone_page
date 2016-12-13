@@ -8,6 +8,10 @@ import Diamond from '../components/Diamond'
 
 function CardPage( {cards, param, dispatch}) {
   function clk(cost) {
+    if( param.cost === cost ) {
+      console.log('you are in the same cost page');
+      return ;
+    }
     console.log('CLICK:' + cost);
     dispatch( { type: 'CardBack/getCard', payload: { cost: cost, page: 0 } } );
   }
