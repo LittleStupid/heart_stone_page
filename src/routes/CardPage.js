@@ -6,8 +6,9 @@ import Header from '../components/Header'
 import { Row, Col, Button } from 'antd';
 import Diamond from '../components/Diamond';
 import PlayerClass from '../components/PlayerClass';
+import HeroModal from '../components/HeroModal';
 
-function CardPage( {cards, param, dispatch}) {
+function CardPage( {cards, param, showModal, dispatch}) {
   function clickCost(cost) {
     if( param.cost === cost ) {
       console.log('you are in the same cost page');
@@ -46,6 +47,14 @@ function CardPage( {cards, param, dispatch}) {
     dispatch( { type: 'CardBack/getCard', payload: queryParam } );
   }
 
+  function openModal() {
+    dispatch( { type: 'CardBack/setModal', payload: true } );
+  }
+
+  function closeModal() {
+    dispatch( { type: 'CardBack/setModal', payload: false } );
+  }
+
   return (
     <Header>
       <Row type="flex">
@@ -65,6 +74,10 @@ function CardPage( {cards, param, dispatch}) {
       <Row>
         <Button onClick={prev}>Prev Page</Button>
         <Button onClick={next}>Next Page</Button>
+      </Row>
+      <Row>
+        <Button onClick={openModal}>Create Deck</Button>
+        <HeroModal showModal={showModal} onCloseFunc={closeModal}/>
       </Row>
       <Row>
         <PlayerClass playerClass='Druid' doClick={clickClass} />
@@ -95,7 +108,8 @@ function CardPage( {cards, param, dispatch}) {
 function mapStateToProps(state, ownProps) {
   return {
     cards: state.CardBack.cards,
-    param: state.CardBack.param
+    param: state.CardBack.param,
+    showModal: state.CardBack.showModal
   };
 }
 

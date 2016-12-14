@@ -9,7 +9,8 @@ export default {
     heros: [],
     cards: [],
 
-    param: {}
+    param: {},
+    showModal: false
   },
 
   subscriptions: {
@@ -27,7 +28,7 @@ export default {
         } else if ( location.pathname === '/cards') {
           dispatch({
             type: 'getCard',
-            payload: { cost: 0, page: 0 }
+            payload: { page: 0 }
           });
         }
       });
@@ -72,6 +73,10 @@ export default {
     },
     setParam(state, action) {
       return { ...state, param: action.payload };
+    },
+    setModal(state, action) {
+      console.log(action);
+      return { ...state, showModal: action.payload };
     }
   }
 }

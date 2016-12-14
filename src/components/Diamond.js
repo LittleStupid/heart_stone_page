@@ -26,11 +26,16 @@ class Diamond extends React.Component {
 
   render() {
     return (
+      <div>
+
       <div className={this.state.diamond_style}
        onClick={this.handleClick.bind(this)}
        onMouseEnter={this.handleHoverIn.bind(this)}
        onMouseLeave={this.handleHoverOut.bind(this)} >
-        { this.state.cost === undefined ? 'ALL' : this.state.cost }
+        <div className={styles.fontzero}>
+        0
+        </div>
+      </div>
       </div>
     )
   }
