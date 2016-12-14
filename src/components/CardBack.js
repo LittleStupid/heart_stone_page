@@ -7,7 +7,7 @@ class CardBack extends React.Component {
     super(props);
     this.state = { url: props.imgUrl,
                    isLoading: true,
-                   doClick: props.doClick,
+                   doClick: props.doClick
                  };
   }
 
@@ -57,7 +57,7 @@ class CardBack extends React.Component {
 CardBack.propTypes = {
   imgUrl: '',
   name: '',
-  doClick: PropTypes.func,
+  doClick: PropTypes.func
 };
 
 export default CardBack;

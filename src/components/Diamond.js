@@ -6,7 +6,7 @@ class Diamond extends React.Component {
     super(props);
 
     this.state = { diamond_style: styles.picture,
-                   cost: props.cost || 0 };
+                   cost: props.cost };
   }
 
   handleHoverIn() {
@@ -24,14 +24,13 @@ class Diamond extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div className={this.state.diamond_style}
        onClick={this.handleClick.bind(this)}
        onMouseEnter={this.handleHoverIn.bind(this)}
        onMouseLeave={this.handleHoverOut.bind(this)} >
-        {this.state.cost}
+        { this.state.cost === undefined ? 'ALL' : this.state.cost }
       </div>
     )
   }

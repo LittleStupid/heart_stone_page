@@ -5,6 +5,8 @@ function genQueryParam( obj ) {
   let strParam = '';
 
   for (let key of Object.keys(obj)) {
+    if( obj[key] === undefined ) continue;
+    if( obj[key] === '' ) continue;
     strParam += ( key + '=' + obj[key] + '&' );
   }
 
@@ -34,6 +36,6 @@ export async function getRemoteCard(params) {
   }
   console.log(request_url);
   return request(request_url, {
-                  method: 'get',
+                  method: 'get'
                 });
               }

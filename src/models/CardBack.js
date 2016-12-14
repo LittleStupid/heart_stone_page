@@ -9,7 +9,7 @@ export default {
     heros: [],
     cards: [],
 
-    param: {},
+    param: {}
   },
 
   subscriptions: {
@@ -50,10 +50,10 @@ export default {
       if( payload.page === undefined ) { console.log( payload.page ); return; }
       if( payload.page < 0 ) { console.log( payload.page ); return; }
       const { data } = yield call(getRemoteCard, payload);
-      if( data.length === 0 ) {
-        console.log( 'get nothing from server');
-        return ;
-      }
+      // if( data.length === 0 ) {
+        // console.log( 'get nothing from server');
+        // return ;
+      // }
 
       yield put( { type: 'setCard', payload: data } );
       yield put( { type: 'setParam', payload: payload });
