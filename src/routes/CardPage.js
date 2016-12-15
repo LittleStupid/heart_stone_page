@@ -55,6 +55,16 @@ function CardPage( {cards, param, showModal, dispatch}) {
     dispatch( { type: 'CommonCard/setModal', payload: false } );
   }
 
+  function selectPlayerClass( playerClass ) {
+    console.log( 'Select:' + playerClass );
+    closeModal();
+    clickClass( playerClass );
+  }
+
+  function clickCard() {
+    console.log( 'CLICK CARD' );
+  }
+
   return (
     <Header>
       <Row type="flex">
@@ -77,25 +87,15 @@ function CardPage( {cards, param, showModal, dispatch}) {
       </Row>
       <Row>
         <Button onClick={openModal}>Create Deck</Button>
-        <HeroModal showModal={showModal} onCloseFunc={closeModal}/>
-      </Row>
-      <Row>
-        <PlayerClass playerClass='Druid' doClick={clickClass} />
-        <PlayerClass playerClass='Hunter' doClick={clickClass} />
-        <PlayerClass playerClass='Mage' doClick={clickClass} />
-        <PlayerClass playerClass='Paladin' doClick={clickClass} />
-        <PlayerClass playerClass='Priest' doClick={clickClass} />
-        <PlayerClass playerClass='Rogue' doClick={clickClass} />
-        <PlayerClass playerClass='Shaman' doClick={clickClass} />
-        <PlayerClass playerClass='Warlock' doClick={clickClass} />
-        <PlayerClass playerClass='Warrior' doClick={clickClass} />
+        <HeroModal showModal={showModal} onCloseFunc={closeModal}
+                   onSelectHero={selectPlayerClass} />
       </Row>
       <Row type="flex">
       {
         cards.map( (card) => {
           return (
             <Col span={4} key={card.cardId}>
-              <CommonCard imgUrl={card.img} name={card.name} />
+              <CommonCard imgUrl={card.img} name={card.name} doClick={clickCard}/>
             </Col>
           )
         })

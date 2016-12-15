@@ -4,8 +4,7 @@ class PlayerClass extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { myClass: props.playerClass,
-                   imgUrl: '' };
+    this.state = { myClass: props.playerClass };
   }
 
   handleClick() {

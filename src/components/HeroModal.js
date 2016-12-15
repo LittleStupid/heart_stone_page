@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Modal } from 'antd';
+import { Modal, Row } from 'antd';
 import PlayerClass from './PlayerClass';
 
 class HeroModal extends React.Component {
@@ -7,35 +7,22 @@ class HeroModal extends React.Component {
     super(props);
   }
 
-  showModal() {
-   this.setState({
-     visible: true,
-   });
-  }
-  handleOk() {
-   console.log('Clicked OK');
-  }
-  handleCancel(e) {
-   console.log(e);
-  }
-  clickClass() {
-    console.log('CLICK CLASS');
-  }
-
   render() {
     return (
       <div>
-      <Modal title="Basic Modal" visible={this.props.showModal}
+      <Modal title="Select Your Class" visible={this.props.showModal} width={610}
              onOk={this.props.onCloseFunc} onCancel={this.props.onCloseFunc} >
-         <PlayerClass playerClass='Druid' doClick={this.clickClass} />
-         <PlayerClass playerClass='Hunter' doClick={this.clickClass} />
-         <PlayerClass playerClass='Mage' doClick={this.clickClass} />
-         <PlayerClass playerClass='Paladin' doClick={this.clickClass} />
-         <PlayerClass playerClass='Priest' doClick={this.clickClass} />
-         <PlayerClass playerClass='Rogue' doClick={this.clickClass} />
-         <PlayerClass playerClass='Shaman' doClick={this.clickClass} />
-         <PlayerClass playerClass='Warlock' doClick={this.clickClass} />
-         <PlayerClass playerClass='Warrior' doClick={this.clickClass} />
+         <Row>
+           <PlayerClass playerClass='Druid' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Hunter' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Mage' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Paladin' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Priest' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Rogue' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Shaman' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Warlock' doClick={this.props.onSelectHero} />
+           <PlayerClass playerClass='Warrior' doClick={this.props.onSelectHero} />
+         </Row>
       </Modal>
     </div>
     )
@@ -44,7 +31,8 @@ class HeroModal extends React.Component {
 
 HeroModal.propTypes = {
   showModal: PropTypes.bool,
-  onCloseFunc: PropTypes.func
+  onCloseFunc: PropTypes.func,
+  onSelectHero: PropTypes.func
 };
 
 export default HeroModal;

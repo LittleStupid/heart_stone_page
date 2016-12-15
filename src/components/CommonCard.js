@@ -6,8 +6,7 @@ class CommonCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { url: props.imgUrl,
-                   isLoading: false,
-                   doClick: props.doClick
+                   isLoading: false
                  };
   }
 
@@ -44,6 +43,7 @@ class CommonCard extends React.Component {
             onError={this.handleImageErrored.bind(this)}
             onMouseEnter={this.handleHoverIn.bind(this)}
             onMouseLeave={this.handleHoverOut.bind(this)}
+            onClick={this.props.doClick}
           />
         </Spin>
         <div className={styles.name}>
