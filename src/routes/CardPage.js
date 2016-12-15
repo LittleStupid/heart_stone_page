@@ -7,8 +7,9 @@ import { Row, Col, Button } from 'antd';
 import Diamond from '../components/Diamond';
 import PlayerClass from '../components/PlayerClass';
 import HeroModal from '../components/HeroModal';
+import SmallCard from '../components/SmallCard';
 
-function CardPage( {cards, param, showModal, dispatch}) {
+function CardPage( {cards, param, showModal, deck, dispatch}) {
   function clickCost(cost) {
     if( param.cost === cost ) {
       console.log('you are in the same cost page');
@@ -56,7 +57,6 @@ function CardPage( {cards, param, showModal, dispatch}) {
   }
 
   function selectPlayerClass( playerClass ) {
-    console.log( 'Select:' + playerClass );
     closeModal();
     clickClass( playerClass );
   }
@@ -101,6 +101,15 @@ function CardPage( {cards, param, showModal, dispatch}) {
         })
       }
       </Row>
+      <Row>
+      {
+        deck.map( (card) => {
+          return (
+            <SmallCard name={card} key={card}/>
+          )
+        })
+      }
+      </Row>
     </Header>
   );
 }
@@ -109,7 +118,8 @@ function mapStateToProps(state, ownProps) {
   return {
     cards: state.CommonCard.cards,
     param: state.CommonCard.param,
-    showModal: state.CommonCard.showModal
+    showModal: state.CommonCard.showModal,
+    deck: state.CommonCard.deck
   };
 }
 

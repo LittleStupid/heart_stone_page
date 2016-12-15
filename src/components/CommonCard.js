@@ -58,6 +58,6 @@ CommonCard.propTypes = {
   imgUrl: '',
   name: '',
   doClick: PropTypes.func
-};
+}
 
 export default CommonCard;

@@ -10,7 +10,9 @@ export default {
     cards: [],
 
     param: {},
-    showModal: false
+    showModal: false,
+
+    deck: [ 'first_card', 'second_card', 'third_card' ]
   },
 
   subscriptions: {
@@ -32,18 +34,16 @@ export default {
           });
         }
       });
-    },
+    }
   },
 
   effects: {
     *getCommonCard({ payload }, { call, put }) {
       const { data } = yield call(getRemoteCommonCard);
-      console.log( data );
       yield put( { type: 'setBack', payload: data } );
     },
     *getHero({ payload }, { call, put }) {
       const { data } = yield call(getRemoteHero);
-      console.log( data );
       yield put( { type: 'setHero', payload: data } );
     },
     *getCard({ payload }, { call, put }) {
@@ -58,7 +58,7 @@ export default {
 
       yield put( { type: 'setCard', payload: data } );
       yield put( { type: 'setParam', payload: payload });
-    },
+    }
   },
 
   reducers: {
@@ -75,7 +75,6 @@ export default {
       return { ...state, param: action.payload };
     },
     setModal(state, action) {
-      console.log(action);
       return { ...state, showModal: action.payload };
     }
   }
