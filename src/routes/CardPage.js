@@ -65,6 +65,10 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
     console.log( 'CLICK CARD' );
   }
 
+  function addToDeck(name) {
+    dispatch( { type: 'CommonCard/addCardToDeck', payload: name } );
+  }
+
   return (
     <Header>
       <Row type="flex">
@@ -95,13 +99,14 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
         cards.map( (card) => {
           return (
             <Col span={4} key={card.cardId}>
-              <CommonCard imgUrl={card.img} name={card.name} doClick={clickCard}/>
+              <CommonCard imgUrl={card.img} name={card.name} doClick={addToDeck}/>
             </Col>
           )
         })
       }
       </Row>
       <Row>
+        <Button onClick={addToDeck}>Add to Deck</Button>
       {
         deck.map( (card) => {
           return (

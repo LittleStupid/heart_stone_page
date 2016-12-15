@@ -31,6 +31,14 @@ class CommonCard extends React.Component {
     }
   }
 
+  handleClick() {
+    console.log('Handle click');
+    if( this.props.doClick ) {
+      this.props.doClick( this.state.url );
+      console.log('do url clck');
+    }
+  }
+
   render() {
     return (
       <div className={styles.lay}>
@@ -43,7 +51,7 @@ class CommonCard extends React.Component {
             onError={this.handleImageErrored.bind(this)}
             onMouseEnter={this.handleHoverIn.bind(this)}
             onMouseLeave={this.handleHoverOut.bind(this)}
-            onClick={this.props.doClick}
+            onClick={this.handleClick.bind(this)}
           />
         </Spin>
         <div className={styles.name}>

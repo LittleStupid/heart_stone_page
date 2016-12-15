@@ -76,6 +76,9 @@ export default {
     },
     setModal(state, action) {
       return { ...state, showModal: action.payload };
+    },
+    addCardToDeck(state, action) {
+      return { ...state, deck: state.deck.concat(action.payload) };
     }
   }
 }
