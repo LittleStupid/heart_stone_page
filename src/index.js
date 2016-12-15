@@ -14,7 +14,7 @@ const app = dva();
 
 // 3. Model
 app.model(require('./models/CardDetail'));
-app.model(require('./models/CardBack'));
+app.model(require('./models/CommonCard'));
 
 // 4. Router
 app.router(require('./router'));

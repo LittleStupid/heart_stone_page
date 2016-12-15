@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Spin, Card } from 'antd';
-import styles from './CardBack.less';
+import styles from './CommonCard.less';
 
-class CardBack extends React.Component {
+class CommonCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { url: props.imgUrl,
@@ -54,10 +54,10 @@ class CardBack extends React.Component {
   }
 };
 
-CardBack.propTypes = {
+CommonCard.propTypes = {
   imgUrl: '',
   name: '',
   doClick: PropTypes.func
 };
 
-export default CardBack;
+export default CommonCard;

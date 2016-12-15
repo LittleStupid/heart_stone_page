@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import CardBack from '../components/CardBack'
+import CommonCard from '../components/CommonCard'
 import Header from '../components/Header'
 import { Row, Col } from 'antd';
 
@@ -13,7 +13,7 @@ function HeroPage( {heros}) {
         heros.map( (hero) => {
           return (
             <Col span={4} key={hero.cardId}>
-              <CardBack imgUrl={hero.img} name={hero.name} />
+              <CommonCard imgUrl={hero.img} name={hero.name} />
             </Col>
           )
         })
@@ -25,7 +25,7 @@ function HeroPage( {heros}) {
 
 function mapStateToProps(state, ownProps) {
   return {
-    heros: state.CardBack.heros.filter( (hero) => { return hero.rarity === 'Free' } )
+    heros: state.CommonCard.heros.filter( (hero) => { return hero.rarity === 'Free' } )
   };
 }
 

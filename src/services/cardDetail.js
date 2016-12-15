@@ -21,7 +21,7 @@ export async function getRemoteCardInfo() {
     });
 }
 
-export async function getRemoteCardBack() {
+export async function getRemoteCommonCard() {
    return request('http://localhost:3000/api/cardbacks', { method: 'get' });
 }
 

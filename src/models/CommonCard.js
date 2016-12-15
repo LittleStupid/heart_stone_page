@@ -1,8 +1,8 @@
-import { getRemoteCardBack, getRemoteHero, getRemoteCard } from '../services/CardDetail';
+import { getRemoteCommonCard, getRemoteHero, getRemoteCard } from '../services/CardDetail';
 
 export default {
 
-  namespace: 'CardBack',
+  namespace: 'CommonCard',
 
   state: {
     backs: [],
@@ -19,7 +19,7 @@ export default {
         if (location.pathname === '/back') {
           console.log('CARD BACK');
           dispatch({
-            type: 'getCardBack'
+            type: 'getCommonCard'
           });
         } else if ( location.pathname === '/hero') {
           dispatch({
@@ -36,8 +36,8 @@ export default {
   },
 
   effects: {
-    *getCardBack({ payload }, { call, put }) {
-      const { data } = yield call(getRemoteCardBack);
+    *getCommonCard({ payload }, { call, put }) {
+      const { data } = yield call(getRemoteCommonCard);
       console.log( data );
       yield put( { type: 'setBack', payload: data } );
     },

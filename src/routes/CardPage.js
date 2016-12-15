@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import CardBack from '../components/CardBack'
+import CommonCard from '../components/CommonCard'
 import Header from '../components/Header'
 import { Row, Col, Button } from 'antd';
 import Diamond from '../components/Diamond';
@@ -15,7 +15,7 @@ function CardPage( {cards, param, showModal, dispatch}) {
       return ;
     }
     let queryParam = { ...param, cost: cost, page: 0 };
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function clickClass(playerClass) {
@@ -24,35 +24,35 @@ function CardPage( {cards, param, showModal, dispatch}) {
       return ;
     }
     let queryParam = { ...param, playerClass: playerClass, page: 0 };
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function prev() {
     let queryParam = { ...param, page: param.page - 1 };
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function next() {
     let queryParam = { ...param, page: param.page + 1 };
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function selectMage() {
     let queryParam = { ...param, page: 0, playerClass: 'Mage'};
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function selectShaman() {
     let queryParam = { ...param, page: 0, playerClass: 'Shaman'};
-    dispatch( { type: 'CardBack/getCard', payload: queryParam } );
+    dispatch( { type: 'CommonCard/getCard', payload: queryParam } );
   }
 
   function openModal() {
-    dispatch( { type: 'CardBack/setModal', payload: true } );
+    dispatch( { type: 'CommonCard/setModal', payload: true } );
   }
 
   function closeModal() {
-    dispatch( { type: 'CardBack/setModal', payload: false } );
+    dispatch( { type: 'CommonCard/setModal', payload: false } );
   }
 
   return (
@@ -95,7 +95,7 @@ function CardPage( {cards, param, showModal, dispatch}) {
         cards.map( (card) => {
           return (
             <Col span={4} key={card.cardId}>
-              <CardBack imgUrl={card.img} name={card.name} />
+              <CommonCard imgUrl={card.img} name={card.name} />
             </Col>
           )
         })
@@ -107,9 +107,9 @@ function CardPage( {cards, param, showModal, dispatch}) {
 
 function mapStateToProps(state, ownProps) {
   return {
-    cards: state.CardBack.cards,
-    param: state.CardBack.param,
-    showModal: state.CardBack.showModal
+    cards: state.CommonCard.cards,
+    param: state.CommonCard.param,
+    showModal: state.CommonCard.showModal
   };
 }
 
