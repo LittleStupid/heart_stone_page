@@ -110,7 +110,7 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
       {
         deck.map( (card) => {
           return (
-            <SmallCard name={card} key={card}/>
+            <SmallCard name={card} />
           )
         })
       }

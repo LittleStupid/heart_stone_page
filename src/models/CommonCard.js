@@ -12,7 +12,7 @@ export default {
     param: {},
     showModal: false,
 
-    deck: [ 'first_card', 'second_card', 'third_card' ]
+    deck: []
   },
 
   subscriptions: {
