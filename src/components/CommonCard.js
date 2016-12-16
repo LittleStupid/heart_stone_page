@@ -6,7 +6,7 @@ class CommonCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { url: props.imgUrl,
-                   isLoading: false
+                   isLoading: true
                  };
   }
 
