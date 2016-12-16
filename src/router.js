@@ -12,7 +12,6 @@ export default function({ history }) {
       <Route path="/" component={WelcomePage} />
       <Route path="/card" component={CardDetailPage} />
       <Route path="/back" component={CardBackPage} />
-      <Route path="/hero" component={HeroPage} />
       <Route path="/cards" component={CardPage} />
     </Router>
   );

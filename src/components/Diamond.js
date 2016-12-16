@@ -17,7 +17,6 @@ class Diamond extends React.Component {
   }
 
   handleClick() {
-    // console.log('CLICK:' + this.state.num );
     if( this.props.doClick ) {
       this.props.doClick(this.props.cost);
     }

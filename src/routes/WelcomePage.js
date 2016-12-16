@@ -7,7 +7,7 @@ import Diamond from '../components/Diamond'
 
 function WelcomePage() {
   function clk(cost) {
-    console.log('CLICK:' + cost);
+    // console.log('CLICK:' + cost);
   }
 
   return (

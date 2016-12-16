@@ -8,7 +8,6 @@ class PlayerClass extends React.Component {
   }
 
   handleClick() {
-    console.log('CLICK:');
     if( this.props.doClick ) {
       this.props.doClick(this.state.myClass);
     }

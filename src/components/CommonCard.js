@@ -32,10 +32,8 @@ class CommonCard extends React.Component {
   }
 
   handleClick() {
-    console.log('Handle click');
     if( this.props.doClick ) {
       this.props.doClick( this.state.url );
-      console.log('do url clck');
     }
   }
 

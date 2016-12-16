@@ -8,7 +8,6 @@ import { Row, Col, Popover } from 'antd';
 function CardBackPage( {backs, query}) {
   return (
     <Header>
-      {console.log(query)}
       <Row type="flex">
       {
         backs.map( (back) => {

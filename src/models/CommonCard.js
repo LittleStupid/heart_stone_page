@@ -19,7 +19,6 @@ export default {
     setup({ dispatch, history }) {
       history.listen(location => {
         if (location.pathname === '/back') {
-          console.log('CARD BACK');
           dispatch({
             type: 'getCommonCard'
           });

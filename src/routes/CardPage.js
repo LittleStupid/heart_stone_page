@@ -13,7 +13,6 @@ import styles from './CardPage.less';
 function CardPage( {cards, param, showModal, deck, dispatch}) {
   function clickCost(cost) {
     if( param.cost === cost ) {
-      console.log('you are in the same cost page');
       return ;
     }
     let queryParam = { ...param, cost: cost, page: 0 };
@@ -22,7 +21,6 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
 
   function clickClass(playerClass) {
     if( param.playerClass === playerClass ) {
-      console.log('you are in the same playerClass page');
       return ;
     }
     let queryParam = { ...param, playerClass: playerClass, page: 0 };
@@ -64,7 +62,6 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
   }
 
   function clickCard() {
-    console.log( 'CLICK CARD' );
   }
 
   function addToDeck(name) {

@@ -39,7 +39,7 @@ export async function getRemoteCard(params) {
   if( params ) {
     request_url += genQueryParam( params );
   }
-  console.log(request_url);
+  // console.log(request_url);
   return request(request_url, {
                   method: 'get'
                 });
