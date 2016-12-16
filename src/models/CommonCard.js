@@ -1,4 +1,4 @@
-import { getRemoteCommonCard, getRemoteHero, getRemoteCard } from '../services/CardDetail';
+import { getRemoteCommonCard, getRemoteHero, getRemoteCard } from '../services/CardService';
 
 export default {
 

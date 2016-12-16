@@ -1,4 +1,4 @@
-import { getRemoteCardInfo } from '../services/CardDetail';
+import { getRemoteCardInfo } from '../services/CardService';
 
 export default {
 
