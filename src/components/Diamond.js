@@ -31,7 +31,7 @@ class Diamond extends React.Component {
          onMouseEnter={this.handleHoverIn.bind(this)}
          onMouseLeave={this.handleHoverOut.bind(this)} >
           <div className={styles.fontzero}>
-            {this.props.cost}
+            {this.props.cost === undefined ? 'all' : this.props.cost}
           </div>
         </div>
       </div>

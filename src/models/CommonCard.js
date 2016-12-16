@@ -79,6 +79,9 @@ export default {
     },
     addCardToDeck(state, action) {
       return { ...state, deck: state.deck.concat(action.payload) };
+    },
+    clearDeck(state, action) {
+      return { ...state, deck: [] };
     }
   }
 }

@@ -8,6 +8,7 @@ import Diamond from '../components/Diamond';
 import PlayerClass from '../components/PlayerClass';
 import HeroModal from '../components/HeroModal';
 import SmallCard from '../components/SmallCard';
+import styles from './CardPage.less';
 
 function CardPage( {cards, param, showModal, deck, dispatch}) {
   function clickCost(cost) {
@@ -58,6 +59,7 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
 
   function selectPlayerClass( playerClass ) {
     closeModal();
+    dispatch( { type: 'CommonCard/clearDeck' } );
     clickClass( playerClass );
   }
 
@@ -86,10 +88,6 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
         <Diamond doClick={clickCost} cost={10} />
       </Row>
       <Row>
-        <Button onClick={prev}>Prev Page</Button>
-        <Button onClick={next}>Next Page</Button>
-      </Row>
-      <Row>
         <Button onClick={openModal}>Create Deck</Button>
         <HeroModal showModal={showModal} onCloseFunc={closeModal}
                    onSelectHero={selectPlayerClass} />
@@ -105,8 +103,11 @@ function CardPage( {cards, param, showModal, deck, dispatch}) {
         })
       }
       </Row>
+      <Row className={styles.pad}>
+        <Button onClick={prev}>Prev Page</Button>
+        <Button onClick={next}>Next Page</Button>
+      </Row>
       <Row>
-        <Button onClick={addToDeck}>Add to Deck</Button>
       {
         deck.map( (card) => {
           return (
