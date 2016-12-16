@@ -1,6 +1,11 @@
 import request from '../utils/request';
 import qs from 'qs';
 
+const LOCAL_URL = 'http://localhost:3000/api/';
+const HEROKU_URL = 'https://afternoon-ridge-22195.herokuapp.com/api/';
+// const URL = LOCAL_URL;
+const URL = HEROKU_URL;
+
 function genQueryParam( obj ) {
   let strParam = '';
 
@@ -22,15 +27,15 @@ export async function getRemoteCardInfo() {
 }
 
 export async function getRemoteCommonCard() {
-   return request('http://localhost:3000/api/cardbacks', { method: 'get' });
+   return request(URL + 'cardbacks', { method: 'get' });
 }
 
 export async function getRemoteHero() {
-  return request('http://localhost:3000/api/hero', { method: 'get' });
+  return request(URL + 'hero', { method: 'get' });
 }
 
 export async function getRemoteCard(params) {
-  let request_url = 'http://localhost:3000/api/all' + '?';
+  let request_url = URL + 'all' + '?';
   if( params ) {
     request_url += genQueryParam( params );
   }
